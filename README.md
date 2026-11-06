@@ -51,21 +51,9 @@ As specified in the official ReBuild '26 Round 1 guidelines (*"Frontend only. No
 ├── register.html        # Registration Flow (Student / Organiser selection)
 ├── style.css            # Unslapped editorial design system, typography, & layout
 ├── app.js               # Tab routing, IST countdown, modal focus trap & RuleBot logic
-├── test.js              # Zero-dependency Node.js automated verification test suite
-├── EXPLAINER.md         # Educational architectural walkthrough & judge defense guide
 ├── campuscode-logo.png  # Official three-slash brand asset extracted from PDF
 └── README.md            # Project documentation & overview
 ```
-
----
-
-### Automated Verification Test Suite
-
-To run the automated verification suite:
-```bash
-node test.js
-```
-The suite verifies script syntax, IST deadline mathematics, DOM ID & selector synchronization, modal accessibility attributes, navigation links, and documentation consistency.
 
 ---
 
