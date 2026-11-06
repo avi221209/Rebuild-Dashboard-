@@ -27,8 +27,8 @@
   /* Quiet Brand Accents */
   --purple: #7665ff;
   --purple-subtle: #f0eeff;
-  --lime: #a7d94b;
-  --lime-dark: #709a25;
+  --lime: #a8e62e;
+  --lime-dark: #82b91a;
 
   /* Semantic (Toned down) */
   --positive: #16a34a;
@@ -284,7 +284,7 @@ a {
 }
 
 .sidebar-user-card:hover {
-  border-color: #bbb;
+  border-color: var(--border-dark);
 }
 
 .user-avatar-initials {
@@ -418,7 +418,7 @@ a {
   transition: border-color 0.15s ease;
 }
 .topbar-icon-btn:hover {
-  border-color: #bbb;
+  border-color: var(--border-dark);
   color: var(--text-primary);
 }
 
@@ -462,7 +462,7 @@ a {
   transition: border-color 0.15s ease;
 }
 .topbar-user-chip:hover {
-  border-color: #bbb;
+  border-color: var(--border-dark);
 }
 
 .chip-avatar {
@@ -673,7 +673,7 @@ a {
 
 .student-outline-btn:hover {
   background: var(--surface-raised);
-  border-color: #bbb;
+  border-color: var(--border-dark);
 }
 
 .btn-sm {
@@ -740,7 +740,7 @@ a {
   width: 4px;
   height: 16px;
 }
-.brand-slashes-mini span:nth-child(1) { background: #111; }
+.brand-slashes-mini span:nth-child(1) { background: var(--text-primary); }
 .brand-slashes-mini span:nth-child(2) { background: var(--purple); }
 .brand-slashes-mini span:nth-child(3) { background: var(--lime-dark); }
 
@@ -767,7 +767,7 @@ a {
 }
 
 .student-stat-card:hover {
-  border-color: #bbb;
+  border-color: var(--border-dark);
 }
 
 .stat-label {
@@ -889,7 +889,7 @@ a {
 }
 
 .registration-card:hover {
-  border-color: #bbb;
+  border-color: var(--border-dark);
 }
 
 .reg-card-top {
@@ -1071,7 +1071,7 @@ a {
 }
 
 .event-browse-card:hover {
-  border-color: #bbb;
+  border-color: var(--border-dark);
 }
 
 .event-card-header {
@@ -1177,7 +1177,7 @@ a {
   width: 5px;
   height: 18px;
 }
-.brand-three-slashes span:nth-child(1) { background: #111; }
+.brand-three-slashes span:nth-child(1) { background: var(--text-primary); }
 .brand-three-slashes span:nth-child(2) { background: var(--purple); }
 .brand-three-slashes span:nth-child(3) { background: var(--lime-dark); }
 
@@ -2137,18 +2137,24 @@ a {
 }
 
 .hero-large-type {
-  font-size: clamp(52px, 8vw, 96px);
-  font-weight: 600;
-  letter-spacing: -0.04em;
-  line-height: 0.94;
+  font-size: clamp(68px, 11vw, 130px);
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  line-height: 0.8;
   color: var(--text-primary);
   margin-bottom: 24px;
 }
 
 .ghost-text {
   color: transparent;
-  -webkit-text-stroke: 1px rgba(17, 17, 17, 0.2);
+  -webkit-text-stroke: 1px #777;
   display: block;
+  transition: color 0.3s ease, -webkit-text-stroke 0.3s ease;
+}
+
+.ghost-text:hover {
+  color: var(--purple);
+  -webkit-text-stroke: 1px var(--purple);
 }
 
 .hero-hackathon-name {
@@ -2206,7 +2212,7 @@ a {
 }
 
 .feature-box:hover {
-  border-color: #bbb;
+  border-color: var(--border-dark);
 }
 
 .feat-num {
@@ -2297,12 +2303,23 @@ a {
 }
 
 .auth-massive-heading {
-  font-size: clamp(48px, 6vw, 76px);
-  font-weight: 600;
-  letter-spacing: -0.04em;
-  line-height: 0.94;
+  font-size: clamp(60px, 8vw, 100px);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 0.82;
   color: var(--text-primary);
   margin-bottom: 18px;
+}
+
+.auth-massive-heading span {
+  color: transparent;
+  -webkit-text-stroke: 1px #777;
+  transition: color 0.3s ease, -webkit-text-stroke 0.3s ease;
+}
+
+.auth-massive-heading span:hover {
+  color: var(--purple);
+  -webkit-text-stroke: 1px var(--purple);
 }
 
 .auth-subtext {
@@ -2442,7 +2459,7 @@ a {
 }
 .demo-btn:hover {
   background: var(--surface-hover);
-  border-color: #bbb;
+  border-color: var(--border-dark);
 }
 
 @media (max-width: 900px) {

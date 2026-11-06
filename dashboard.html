@@ -262,7 +262,7 @@
             <article class="student-stat-card">
               <span class="stat-label">Registered</span>
               <div class="stat-number-wrapper">
-                <strong class="stat-number">03</strong>
+                <strong class="stat-number">3</strong>
               </div>
               <div class="stat-footer">
                 <span class="stat-detail">All time</span>
@@ -272,7 +272,7 @@
             <article class="student-stat-card">
               <span class="stat-label">Ongoing</span>
               <div class="stat-number-wrapper">
-                <strong class="stat-number" style="color:var(--lime-dark);">01</strong>
+                <strong class="stat-number" style="color:var(--lime-dark);">1</strong>
               </div>
               <div class="stat-footer">
                 <span class="stat-detail">Active now</span>
@@ -283,7 +283,7 @@
             <article class="student-stat-card">
               <span class="stat-label">Completed</span>
               <div class="stat-number-wrapper">
-                <strong class="stat-number">02</strong>
+                <strong class="stat-number">2</strong>
               </div>
               <div class="stat-footer">
                 <span class="stat-detail">Submitted</span>
@@ -293,7 +293,7 @@
             <article class="student-stat-card">
               <span class="stat-label">Certificates</span>
               <div class="stat-number-wrapper">
-                <strong class="stat-number">01</strong>
+                <strong class="stat-number">1</strong>
               </div>
               <div class="stat-footer">
                 <span class="stat-detail">Verified on ledger</span>
@@ -484,7 +484,7 @@
           <div class="events-filter-bar">
             <div class="search-box">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-              <input type="text" id="event-search-input" placeholder="Search events" oninput="handleEventSearch(this.value)">
+              <input type="text" id="event-search-input" placeholder="Search events" aria-label="Search events" oninput="handleEventSearch(this.value)">
             </div>
             <div class="category-tabs">
               <button class="cat-pill active" onclick="filterEvents('all', this)">All</button>
@@ -735,7 +735,7 @@
             </div>
 
             <form class="rulebot-input-bar" onsubmit="handleRulebotSubmit(event)">
-              <input type="text" id="rulebot-input" placeholder="Ask RuleBot about ReBuild '26 rules" autocomplete="off">
+              <input type="text" id="rulebot-input" placeholder="Ask RuleBot about ReBuild '26 rules" aria-label="Ask RuleBot about rules" autocomplete="off">
               <button type="submit" class="student-primary-btn btn-sm">
                 <span>Send</span>
               </button>

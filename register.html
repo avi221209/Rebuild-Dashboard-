@@ -33,7 +33,7 @@
       <h1 class="auth-massive-heading">
         JOIN<br>
         THE<br>
-        ARENA
+        <span>ARENA.</span>
       </h1>
       <p class="auth-subtext">
         Create your student account for ReBuild '26. Participate alone, track your rounds, join AI sprints, and earn verifiable certificates.
@@ -49,12 +49,12 @@
       <p class="auth-card-desc">Create your individual CampusCode student profile.</p>
 
       <form onsubmit="handleRegisterSubmit(event)">
-        <!-- Role selector -->
-        <label class="auth-label">SELECT ROLE</label>
+        <!-- Account Type (Fixed Student per live portal) -->
+        <label class="auth-label">ACCOUNT TYPE</label>
         <div class="auth-role-pills">
-          <div class="role-pill active" id="pill-student" onclick="setRole('student')">STUDENT</div>
-          <div class="role-pill" id="pill-organiser" onclick="setRole('organiser')">ORGANISER</div>
+          <button type="button" class="role-pill active" id="pill-student" style="cursor:default;" aria-label="Account type: student only">STUDENT</button>
         </div>
+        <p style="font-size:11px; color:var(--text-muted); margin-top:-10px; margin-bottom:14px;">Organizer accounts are created by our team.</p>
 
         <div class="auth-field-group">
           <label class="auth-label" for="reg-name">FULL NAME</label>
