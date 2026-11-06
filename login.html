@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | CampusCode ReBuild '26</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page-shell">
+
+  <!-- HEADER -->
+  <header class="auth-header">
+    <a href="landing.html" class="landing-logo">
+      <img src="campuscode-logo.png" alt="CampusCode Logo" class="brand-logo-img">
+      <div class="brand-copy">
+        <strong class="brand-title">CAMPUSCODE</strong>
+        <span class="brand-tagline">HACKATHON ARENA</span>
+      </div>
+    </a>
+    <a href="landing.html" class="student-outline-btn btn-sm">← BACK TO HOME</a>
+  </header>
+
+  <!-- SPLIT STAGE MATCHING PAGE 8 SCREENSHOT -->
+  <main class="auth-main-stage">
+    
+    <!-- LEFT HERO COLUMN -->
+    <div class="auth-hero-copy">
+      <h1 class="auth-massive-heading">
+        ENTER<br>
+        THE<br>
+        ARENA.
+      </h1>
+      <p class="auth-subtext">
+        Access your active hackathon journeys, live submissions, AI tools, and cryptographically verifiable certificates.
+      </p>
+      <div>
+        <a href="register.html" class="auth-link">Don't have an account? Join the Arena ↗</a>
+      </div>
+    </div>
+
+    <!-- RIGHT FORM CARD -->
+    <div class="auth-card">
+      <h2 class="auth-card-title">LOGIN</h2>
+      <p class="auth-card-desc">Sign in with your registered student credentials.</p>
+
+      <form onsubmit="handleLoginSubmit(event)">
+        <div class="auth-field-group">
+          <label class="auth-label" for="login-email">STUDENT EMAIL</label>
+          <input type="email" id="login-email" class="auth-input" value="saikrishna@student.edu.in" required>
+        </div>
+
+        <div class="auth-field-group">
+          <label class="auth-label" for="login-pass">PASSWORD</label>
+          <input type="password" id="login-pass" class="auth-input" value="••••••••••••" required>
+        </div>
+
+        <div class="auth-row-between">
+          <label class="auth-checkbox-label">
+            <input type="checkbox" checked>
+            <span>Remember me</span>
+          </label>
+          <a href="#" class="auth-link" onclick="alert('Password reset link sent to registered email.'); return false;">Forgot?</a>
+        </div>
+
+        <button type="submit" class="student-primary-btn w-full">
+          <span>LOGIN TO ARENA</span>
+          <b>↗</b>
+        </button>
+
+        <!-- ONE-CLICK DEMO LOGIN -->
+        <div class="demo-login-box">
+          <button type="button" class="demo-btn" onclick="location.href='index.html'">
+            <span>⚡ ONE-CLICK DEMO LOGIN (AS SAI KRISHNA)</span>
+            <b>↗</b>
+          </button>
+        </div>
+      </form>
+    </div>
+
+  </main>
+
+  <script>
+    function handleLoginSubmit(e) {
+      e.preventDefault();
+      // Smooth redirect to dashboard
+      window.location.href = 'index.html';
+    }
+  </script>
+
+</body>
+</html>

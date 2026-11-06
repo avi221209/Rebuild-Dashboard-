@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | CampusCode ReBuild '26</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page-shell">
+
+  <!-- HEADER -->
+  <header class="auth-header">
+    <a href="landing.html" class="landing-logo">
+      <img src="campuscode-logo.png" alt="CampusCode Logo" class="brand-logo-img">
+      <div class="brand-copy">
+        <strong class="brand-title">CAMPUSCODE</strong>
+        <span class="brand-tagline">HACKATHON ARENA</span>
+      </div>
+    </a>
+    <a href="login.html" class="student-outline-btn btn-sm">ALREADY REGISTERED? LOGIN</a>
+  </header>
+
+  <!-- SPLIT STAGE MATCHING PAGE 8 SCREENSHOT -->
+  <main class="auth-main-stage">
+    
+    <!-- LEFT HERO COLUMN -->
+    <div class="auth-hero-copy">
+      <h1 class="auth-massive-heading">
+        JOIN<br>
+        THE<br>
+        ARENA.
+      </h1>
+      <p class="auth-subtext">
+        Create your student account for ReBuild '26. Participate alone, track your rounds, join AI sprints, and earn verifiable certificates.
+      </p>
+      <div>
+        <a href="login.html" class="auth-link">Already have an account? Enter the Arena ↗</a>
+      </div>
+    </div>
+
+    <!-- RIGHT FORM CARD -->
+    <div class="auth-card">
+      <h2 class="auth-card-title">REGISTER</h2>
+      <p class="auth-card-desc">Create your individual CampusCode student profile.</p>
+
+      <form onsubmit="handleRegisterSubmit(event)">
+        <!-- Role selector -->
+        <label class="auth-label">SELECT ROLE</label>
+        <div class="auth-role-pills">
+          <div class="role-pill active" id="pill-student" onclick="setRole('student')">STUDENT</div>
+          <div class="role-pill" id="pill-organiser" onclick="setRole('organiser')">ORGANISER</div>
+        </div>
+
+        <div class="auth-field-group">
+          <label class="auth-label" for="reg-name">FULL NAME</label>
+          <input type="text" id="reg-name" class="auth-input" placeholder="e.g. Sai Krishna" required>
+        </div>
+
+        <div class="auth-field-group">
+          <label class="auth-label" for="reg-email">COLLEGE / STUDENT EMAIL</label>
+          <input type="email" id="reg-email" class="auth-input" placeholder="e.g. saikrishna@college.edu.in" required>
+        </div>
+
+        <div class="auth-field-group">
+          <label class="auth-label" for="reg-pass">PASSWORD</label>
+          <input type="password" id="reg-pass" class="auth-input" placeholder="Create strong password" required>
+        </div>
+
+        <div class="auth-field-group">
+          <label class="auth-checkbox-label" style="font-size: 11px; margin-bottom: 8px;">
+            <input type="checkbox" required checked>
+            <span>I am 18+ and accept the ReBuild '26 competition rules</span>
+          </label>
+          <label class="auth-checkbox-label" style="font-size: 11px;">
+            <input type="checkbox" required checked>
+            <span>I confirm under 40% AI code generation policy</span>
+          </label>
+        </div>
+
+        <button type="submit" class="student-primary-btn w-full" style="margin-top: 10px;">
+          <span>CREATE ACCOUNT & ENTER ARENA</span>
+          <b>↗</b>
+        </button>
+
+        <div class="demo-login-box">
+          <button type="button" class="demo-btn" onclick="location.href='index.html'">
+            <span>⚡ SKIP REGISTRATION → DIRECT DEMO DASHBOARD</span>
+            <b>↗</b>
+          </button>
+        </div>
+      </form>
+    </div>
+
+  </main>
+
+  <script>
+    function setRole(role) {
+      document.getElementById('pill-student').classList.toggle('active', role === 'student');
+      document.getElementById('pill-organiser').classList.toggle('active', role === 'organiser');
+    }
+
+    function handleRegisterSubmit(e) {
+      e.preventDefault();
+      alert('Account verified! Welcome to CampusCode ReBuild 26.');
+      window.location.href = 'index.html';
+    }
+  </script>
+
+</body>
+</html>
