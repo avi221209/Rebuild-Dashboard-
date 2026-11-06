@@ -74,15 +74,14 @@
   }
 
   // --- 2. LIVE COUNTDOWN (ROUND 1 DEADLINE: 10:00 PM IST) ---
+  const ROUND1_DEADLINE_MS = new Date('2026-11-06T22:00:00+05:30').getTime();
+
   function initCountdown() {
     if (!liveCountdownEl) return;
 
     function updateTimer() {
-      const now = new Date();
-      const target = new Date();
-      target.setHours(22, 0, 0, 0);
-
-      const diff = target.getTime() - now.getTime();
+      const now = Date.now();
+      const diff = ROUND1_DEADLINE_MS - now;
 
       if (diff <= 0) {
         liveCountdownEl.textContent = 'Round 1 Concluded';
@@ -124,15 +123,40 @@
     }, 2800);
   };
 
-  // --- 4. MODALS ---
+  // --- 4. MODALS & ACCESSIBILITY ---
+  let lastActiveModalTrigger = null;
+
   window.openModal = function (modalId) {
-    const el = document.getElementById(modalId.startsWith('modal-') ? modalId : `modal-${modalId}`);
-    if (el) el.classList.add('open');
+    lastActiveModalTrigger = document.activeElement;
+    const targetId = modalId.startsWith('modal-') ? modalId : `modal-${modalId}`;
+    const el = document.getElementById(targetId);
+    if (!el) return;
+
+    el.classList.add('open');
+    el.setAttribute('aria-hidden', 'false');
+
+    // Focus the first focusable interactive element inside the modal or the card itself
+    const focusable = el.querySelectorAll('button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])');
+    if (focusable.length > 0) {
+      focusable[0].focus();
+    } else {
+      el.focus();
+    }
   };
 
   window.closeModal = function (modalId) {
-    const el = document.getElementById(modalId.startsWith('modal-') ? modalId : `modal-${modalId}`);
-    if (el) el.classList.remove('open');
+    const targetId = modalId.startsWith('modal-') ? modalId : `modal-${modalId}`;
+    const el = document.getElementById(targetId);
+    if (!el) return;
+
+    el.classList.remove('open');
+    el.setAttribute('aria-hidden', 'true');
+
+    // Restore focus to triggering element
+    if (lastActiveModalTrigger && typeof lastActiveModalTrigger.focus === 'function') {
+      lastActiveModalTrigger.focus();
+      lastActiveModalTrigger = null;
+    }
   };
 
   window.closeModalOnBackdrop = function (event, modalId) {
@@ -140,6 +164,40 @@
       window.closeModal(modalId);
     }
   };
+
+  // Keyboard accessibility: Escape to close open modals & Tab focus trapping
+  document.addEventListener('keydown', (e) => {
+    const openModalEl = document.querySelector('.modal-overlay.open');
+    if (!openModalEl) return;
+
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      window.closeModal(openModalEl.id);
+      return;
+    }
+
+    if (e.key === 'Tab') {
+      const focusable = Array.from(
+        openModalEl.querySelectorAll('button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')
+      );
+      if (focusable.length === 0) return;
+
+      const firstEl = focusable[0];
+      const lastEl = focusable[focusable.length - 1];
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstEl || !openModalEl.contains(document.activeElement)) {
+          e.preventDefault();
+          lastEl.focus();
+        }
+      } else {
+        if (document.activeElement === lastEl || !openModalEl.contains(document.activeElement)) {
+          e.preventDefault();
+          firstEl.focus();
+        }
+      }
+    }
+  });
 
   // --- 5. RULEBOT AI ENGINE ---
   const rulebotKnowledge = {
@@ -269,21 +327,47 @@
   // --- 8. UTILITIES ---
   window.copyCertLink = function () {
     const url = 'https://campuscode.co.in/verify/CC-CERT-2026-9812';
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(url).then(() => {
-        window.showToast('Verification link copied');
-      });
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url)
+        .then(() => {
+          window.showToast('Verification link copied');
+        })
+        .catch(() => {
+          fallbackCopyText(url);
+        });
     } else {
-      window.showToast('Verified at: ' + url);
+      fallbackCopyText(url);
     }
   };
+
+  function fallbackCopyText(text) {
+    try {
+      const textArea = document.createElement('textarea');
+      textArea.value = text;
+      textArea.style.position = 'fixed';
+      textArea.style.opacity = '0';
+      document.body.appendChild(textArea);
+      textArea.select();
+      const successful = document.execCommand('copy');
+      document.body.removeChild(textArea);
+      if (successful) {
+        window.showToast('Verification link copied');
+      } else {
+        window.showToast('Verified at: ' + text);
+      }
+    } catch (err) {
+      window.showToast('Verified at: ' + text);
+    }
+  }
 
   window.markAllNotificationsRead = function () {
     document.querySelectorAll('.notif-item.unread').forEach((el) => {
       el.classList.remove('unread');
     });
-    const badge = document.querySelector('.icon-dot-badge');
-    if (badge) badge.style.display = 'none';
+    // Hide both topbar header badge (.icon-dot-badge) and sidebar nav badge (.dot-badge)
+    document.querySelectorAll('.icon-dot-badge, .sidebar-nav .dot-badge').forEach((badge) => {
+      badge.style.display = 'none';
+    });
     window.showToast('All notifications marked as read');
   };
 

@@ -190,12 +190,12 @@
         <section class="view-panel active" id="view-overview">
           
           <header class="student-page-header">
-            <span class="section-eyebrow">Student Workspace / Live</span>
+            <span class="section-eyebrow">Student Workspace / ReBuild '26</span>
             <h1 class="student-page-title">
               Overview · Sai Krishna
             </h1>
             <p class="student-page-desc">
-              Your CampusCode activity is loaded directly from the backend.
+              Your registered CampusCode hackathon workspace and event progress tracker.
             </p>
           </header>
 
@@ -330,7 +330,7 @@
           
           <header class="student-page-header header-with-counter">
             <div>
-              <span class="section-eyebrow">My Activity / Backend Data</span>
+              <span class="section-eyebrow">My Activity / Registered Events</span>
               <div class="title-counter-row">
                 <h1 class="student-page-title">My Events</h1>
                 <span class="counter-badge">03</span>
@@ -590,9 +590,9 @@
         <!-- ============================================== -->
         <section class="view-panel" id="view-certificates">
           <header class="student-page-header">
-            <span class="section-eyebrow">Credentials / Verified Ledger</span>
+            <span class="section-eyebrow">Credentials / Issued Certificates</span>
             <h1 class="student-page-title">Certificates</h1>
-            <p class="student-page-desc">Cryptographically verifiable certificates issued on CampusCode.</p>
+            <p class="student-page-desc">Verified digital certificates issued for completed CampusCode challenges.</p>
           </header>
 
           <div class="certificate-display-box">
@@ -852,7 +852,7 @@
               <div class="notif-icon-box">QC</div>
               <div class="notif-body">
                 <strong>FirstCommit '26 certificate issued</strong>
-                <p>Your performance certificate for Quiz 2.0 has been cryptographically signed and added to your profile.</p>
+                <p>Your performance certificate for Quiz 2.0 has been issued and added to your profile.</p>
                 <small class="mono-meta">Oct 29, 2026</small>
               </div>
             </div>
@@ -925,14 +925,14 @@
   </div>
 
   <!-- MODAL: REBUILD '26 BRIEF -->
-  <div class="modal-overlay" id="modal-rebuild-brief" onclick="closeModalOnBackdrop(event, 'modal-rebuild-brief')">
-    <div class="modal-card">
+  <div class="modal-overlay" id="modal-rebuild-brief" onclick="closeModalOnBackdrop(event, 'modal-rebuild-brief')" role="dialog" aria-modal="true" aria-labelledby="modal-rebuild-title" aria-hidden="true">
+    <div class="modal-card" tabindex="-1">
       <div class="modal-header">
         <div>
           <span class="section-eyebrow">Schedule & Guidelines</span>
-          <h2 class="modal-title">ReBuild '26 — Round 1</h2>
+          <h2 class="modal-title" id="modal-rebuild-title">ReBuild '26 — Round 1</h2>
         </div>
-        <button class="modal-close-btn" onclick="closeModal('modal-rebuild-brief')">✕</button>
+        <button class="modal-close-btn" onclick="closeModal('modal-rebuild-brief')" aria-label="Close modal dialog">✕</button>
       </div>
       <div class="modal-body">
         <div class="rule-highlight-box">
