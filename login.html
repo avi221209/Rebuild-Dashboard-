@@ -7,7 +7,7 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css">
 </head>
@@ -22,7 +22,7 @@
         <span class="brand-tagline">HACKATHON ARENA</span>
       </div>
     </a>
-    <a href="landing.html" class="student-outline-btn btn-sm">← BACK TO HOME</a>
+    <a href="landing.html" class="student-outline-btn btn-sm">Home</a>
   </header>
 
   <!-- SPLIT STAGE MATCHING PAGE 8 SCREENSHOT -->
@@ -33,19 +33,19 @@
       <h1 class="auth-massive-heading">
         ENTER<br>
         THE<br>
-        ARENA.
+        ARENA
       </h1>
       <p class="auth-subtext">
         Access your active hackathon journeys, live submissions, AI tools, and cryptographically verifiable certificates.
       </p>
       <div>
-        <a href="register.html" class="auth-link">Don't have an account? Join the Arena ↗</a>
+        <a href="register.html" class="auth-link">Don't have an account? Join the Arena</a>
       </div>
     </div>
 
     <!-- RIGHT FORM CARD -->
     <div class="auth-card">
-      <h2 class="auth-card-title">LOGIN</h2>
+      <h2 class="auth-card-title">Login</h2>
       <p class="auth-card-desc">Sign in with your registered student credentials.</p>
 
       <form onsubmit="handleLoginSubmit(event)">
@@ -64,19 +64,16 @@
             <input type="checkbox" checked>
             <span>Remember me</span>
           </label>
-          <a href="#" class="auth-link" onclick="alert('Password reset link sent to registered email.'); return false;">Forgot?</a>
+          <a href="#" class="auth-link" onclick="alert('Password reset link sent to registered email'); return false;">Forgot?</a>
         </div>
 
         <button type="submit" class="student-primary-btn w-full">
-          <span>LOGIN TO ARENA</span>
-          <b>↗</b>
+          <span>Login to Arena</span>
         </button>
 
-        <!-- ONE-CLICK DEMO LOGIN -->
         <div class="demo-login-box">
           <button type="button" class="demo-btn" onclick="location.href='index.html'">
-            <span>⚡ ONE-CLICK DEMO LOGIN (AS SAI KRISHNA)</span>
-            <b>↗</b>
+            <span>Demo Login (Sai Krishna)</span>
           </button>
         </div>
       </form>
@@ -87,7 +84,6 @@
   <script>
     function handleLoginSubmit(e) {
       e.preventDefault();
-      // Smooth redirect to dashboard
       window.location.href = 'index.html';
     }
   </script>

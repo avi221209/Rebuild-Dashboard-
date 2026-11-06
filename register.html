@@ -7,7 +7,7 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css">
 </head>
@@ -22,7 +22,7 @@
         <span class="brand-tagline">HACKATHON ARENA</span>
       </div>
     </a>
-    <a href="login.html" class="student-outline-btn btn-sm">ALREADY REGISTERED? LOGIN</a>
+    <a href="login.html" class="student-outline-btn btn-sm">Already Registered? Login</a>
   </header>
 
   <!-- SPLIT STAGE MATCHING PAGE 8 SCREENSHOT -->
@@ -33,19 +33,19 @@
       <h1 class="auth-massive-heading">
         JOIN<br>
         THE<br>
-        ARENA.
+        ARENA
       </h1>
       <p class="auth-subtext">
         Create your student account for ReBuild '26. Participate alone, track your rounds, join AI sprints, and earn verifiable certificates.
       </p>
       <div>
-        <a href="login.html" class="auth-link">Already have an account? Enter the Arena ↗</a>
+        <a href="login.html" class="auth-link">Already have an account? Enter the Arena</a>
       </div>
     </div>
 
     <!-- RIGHT FORM CARD -->
     <div class="auth-card">
-      <h2 class="auth-card-title">REGISTER</h2>
+      <h2 class="auth-card-title">Register</h2>
       <p class="auth-card-desc">Create your individual CampusCode student profile.</p>
 
       <form onsubmit="handleRegisterSubmit(event)">
@@ -83,14 +83,12 @@
         </div>
 
         <button type="submit" class="student-primary-btn w-full" style="margin-top: 10px;">
-          <span>CREATE ACCOUNT & ENTER ARENA</span>
-          <b>↗</b>
+          <span>Create Account & Enter Arena</span>
         </button>
 
         <div class="demo-login-box">
           <button type="button" class="demo-btn" onclick="location.href='index.html'">
-            <span>⚡ SKIP REGISTRATION → DIRECT DEMO DASHBOARD</span>
-            <b>↗</b>
+            <span>Direct Demo Dashboard</span>
           </button>
         </div>
       </form>
@@ -106,7 +104,7 @@
 
     function handleRegisterSubmit(e) {
       e.preventDefault();
-      alert('Account verified! Welcome to CampusCode ReBuild 26.');
+      alert('Account verified. Welcome to CampusCode ReBuild 26.');
       window.location.href = 'index.html';
     }
   </script>

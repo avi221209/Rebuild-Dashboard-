@@ -1,7 +1,6 @@
 /**
- * CAMPUSCODE — DIMENSIONAL STUDENT DASHBOARD
- * Application Logic, 3D Tilt Physics & Interactive Features
- * Hackathon Arena — ReBuild '26 Round 1
+ * CAMPUSCODE — STUDENT DASHBOARD (UNSLOPPED)
+ * Focused routing, calm feedback, tabular countdown & official rulebot logic.
  */
 
 (function () {
@@ -24,35 +23,29 @@
   window.navigateTo = function (viewId) {
     if (!viewId) return;
 
-    // Remove active from all nav items
+    // Toggle active on sidebar navigation
     document.querySelectorAll('.sidebar-nav .nav-item').forEach((item) => {
       item.classList.toggle('active', item.dataset.view === viewId);
     });
 
-    // Remove active from all view panels
+    // Toggle active view panel
     document.querySelectorAll('.view-panel').forEach((panel) => {
       panel.classList.remove('active');
     });
 
-    // Activate the requested panel
     const targetPanel = document.getElementById(`view-${viewId}`);
     if (targetPanel) {
       targetPanel.classList.add('active');
       activeView = viewId;
 
-      // Update breadcrumb
       if (bcCurrent) {
         bcCurrent.textContent = viewId.replace('-', ' ').toUpperCase();
       }
 
-      // Update hash in URL
       history.replaceState(null, null, `#${viewId}`);
-
-      // Scroll viewport back to top
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Close mobile drawer if open
     closeMobileSidebar();
   };
 
@@ -80,55 +73,19 @@
     sidebarBackdrop.addEventListener('click', closeMobileSidebar);
   }
 
-  // --- 2. 3D DIMENSIONAL TILT PHYSICS ---
-  function init3DTilt() {
-    // Respect user motion preferences & touch devices
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const isTouch = window.matchMedia('(pointer: coarse)').matches;
-    if (prefersReducedMotion || isTouch) return;
-
-    const tiltElements = document.querySelectorAll('.tilt-card, .tilt-stat-card');
-
-    tiltElements.forEach((el) => {
-      el.addEventListener('mousemove', (e) => {
-        const rect = el.getBoundingClientRect();
-        const x = e.clientX - rect.left; // x position within element
-        const y = e.clientY - rect.top;  // y position within element
-
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const deltaX = (x - centerX) / centerX; // Normalized -1 to +1
-        const deltaY = (y - centerY) / centerY;
-
-        // Degree limits: subtle, elegant 3D tilt
-        const maxTilt = el.classList.contains('student-hero-card') ? 7 : 9;
-        const rotateX = (-deltaY * maxTilt).toFixed(2);
-        const rotateY = (deltaX * maxTilt).toFixed(2);
-
-        el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(8px)`;
-      });
-
-      el.addEventListener('mouseleave', () => {
-        el.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
-      });
-    });
-  }
-
-  // --- 3. COUNTDOWN TIMER (ROUND 1 DEADLINE: 10:00 PM IST) ---
+  // --- 2. LIVE COUNTDOWN (ROUND 1 DEADLINE: 10:00 PM IST) ---
   function initCountdown() {
     if (!liveCountdownEl) return;
 
     function updateTimer() {
       const now = new Date();
-      // Target: 10:00 PM IST today (22:00:00)
       const target = new Date();
       target.setHours(22, 0, 0, 0);
 
       const diff = target.getTime() - now.getTime();
 
       if (diff <= 0) {
-        liveCountdownEl.textContent = 'ROUND 1 CONCLUDED';
+        liveCountdownEl.textContent = 'Round 1 Concluded';
         return;
       }
 
@@ -140,14 +97,14 @@
       const mStr = minutes < 10 ? '0' + minutes : minutes;
       const sStr = seconds < 10 ? '0' + seconds : seconds;
 
-      liveCountdownEl.textContent = `${hStr}h ${mStr}m ${sStr}s LEFT`;
+      liveCountdownEl.textContent = `${hStr}h ${mStr}m ${sStr}s Left`;
     }
 
     updateTimer();
     setInterval(updateTimer, 1000);
   }
 
-  // --- 4. TOAST NOTIFICATION SYSTEM ---
+  // --- 3. TOAST NOTIFICATIONS ---
   window.showToast = function (message) {
     if (!toastContainer) return;
 
@@ -155,20 +112,19 @@
     toast.className = 'toast-msg';
     toast.innerHTML = `
       <span class="toast-accent-dot"></span>
-      <span>${message}</span>
+      <span>${escapeHtml(message)}</span>
     `;
 
     toastContainer.appendChild(toast);
 
     setTimeout(() => {
       toast.style.opacity = '0';
-      toast.style.transform = 'translateY(8px)';
-      toast.style.transition = 'all 0.3s ease';
-      setTimeout(() => toast.remove(), 300);
-    }, 3200);
+      toast.style.transition = 'opacity 0.2s ease';
+      setTimeout(() => toast.remove(), 250);
+    }, 2800);
   };
 
-  // --- 5. MODAL MANAGEMENT ---
+  // --- 4. MODALS ---
   window.openModal = function (modalId) {
     const el = document.getElementById(modalId.startsWith('modal-') ? modalId : `modal-${modalId}`);
     if (el) el.classList.add('open');
@@ -185,14 +141,14 @@
     }
   };
 
-  // --- 6. RULEBOT AI CHAT ENGINE (VERIFIED AGAINST REBUILD '26 PDF) ---
+  // --- 5. RULEBOT AI ENGINE ---
   const rulebotKnowledge = {
-    '40%': `<strong>40% AI Code Rule:</strong> The organizers strictly review submitted repositories. If more than 40% of the code is AI-written, your submission will not be considered. You must be prepared to explain every line of your implementation during Round 3 interviews.`,
-    'deadline': `<strong>Round 1 Schedule:</strong> Friday, 6 November from 8:00 AM to 10:00 PM IST. What is live on your deployment link at 10:00 PM is what gets evaluated. Round 2 shortlist is released after 10:00 PM in the WhatsApp group.`,
-    'netlify': `<strong>Netlify Drop Instructions:</strong> If your project uses vanilla HTML/CSS/JS with zero build steps, you can directly upload your project folder to <em>app.netlify.com/drop</em> without using GitHub. It generates a live URL in seconds.`,
-    'prize': `<strong>Prizes & Recognition:</strong> The Winner receives a Winner Certificate and a CampusCode Internship with a <strong>₹15,000 stipend</strong>. Runner-up receives a Runner-up Certificate. All participants receive verifiable participation certificates.`,
-    'scope': `<strong>Scope for Round 1:</strong> Faithfully recreate 4 pages: Landing page, Login page, Register page, and the Student Dashboard (showing My Events and Events). Subtle animations and colors that blend in are welcomed.`,
-    'round2': `<strong>Round 2:</strong> Saturday 7 Nov (10 AM - 8 PM IST). Only for shortlisted top performers. In Round 2, you redesign the UI with a complete new look while preserving CampusCode's aesthetic.`
+    '40%': `<strong>40% AI Code Rule:</strong> If more than 40% of the code is AI-written, the submission will not be considered. You must understand and be able to explain every line of your implementation during judging.`,
+    'deadline': `<strong>Round 1 Schedule:</strong> Friday, 6 November from 8:00 AM to 10:00 PM IST. What is live on your deployment link at 10:00 PM is what gets evaluated.`,
+    'netlify': `<strong>Netlify Drop:</strong> For vanilla HTML/CSS/JS with zero build steps, you can directly drag your project folder to <em>app.netlify.com/drop</em> to deploy instantly without GitHub.`,
+    'prize': `<strong>Prizes:</strong> Winner receives a Winner Certificate and a CampusCode Internship with a <strong>₹15,000 stipend</strong>. All participants receive verifiable participation certificates.`,
+    'scope': `<strong>Round 1 Scope:</strong> Faithfully recreate 4 pages: Landing page, Login page, Register page, and the Student Dashboard with My Events and Events.`,
+    'round2': `<strong>Round 2:</strong> Saturday 7 Nov (10 AM to 8 PM IST) for shortlisted participants only. Redesign with an original UI preserving CampusCode's identity.`
   };
 
   window.askRulebot = function (questionText) {
@@ -212,7 +168,6 @@
   function postRulebotUserMessage(userText) {
     if (!rulebotChatWindow) return;
 
-    // Append User Message
     const userMsg = document.createElement('div');
     userMsg.className = 'user-msg';
     userMsg.innerHTML = `
@@ -220,11 +175,8 @@
       <div class="user-bubble">${escapeHtml(userText)}</div>
     `;
     rulebotChatWindow.appendChild(userMsg);
-
-    // Auto-scroll
     rulebotChatWindow.scrollTop = rulebotChatWindow.scrollHeight;
 
-    // Compute Answer
     setTimeout(() => {
       const lower = userText.toLowerCase();
       let answer = '';
@@ -233,7 +185,7 @@
         answer = rulebotKnowledge['40%'];
       } else if (lower.includes('deadline') || lower.includes('schedule') || lower.includes('time') || lower.includes('round 1')) {
         answer = rulebotKnowledge['deadline'];
-      } else if (lower.includes('netlify') || lower.includes('drop') || lower.includes('deploy') || lower.includes('host')) {
+      } else if (lower.includes('netlify') || lower.includes('drop') || lower.includes('deploy')) {
         answer = rulebotKnowledge['netlify'];
       } else if (lower.includes('prize') || lower.includes('internship') || lower.includes('stipend')) {
         answer = rulebotKnowledge['prize'];
@@ -242,7 +194,7 @@
       } else if (lower.includes('round 2') || lower.includes('saturday')) {
         answer = rulebotKnowledge['round2'];
       } else {
-        answer = `I am trained on the ReBuild '26 official rulebook. For Round 1, ensure you faithfully recreate the 4 pages (Landing, Login, Register, Dashboard) before 10:00 PM IST today, maintain under 40% AI code generation, and test your live link on desktop.`;
+        answer = `For Round 1, recreate the 4 pages (Landing, Login, Register, Dashboard) before 10:00 PM IST today, maintain under 40% AI code generation, and test your live link on desktop.`;
       }
 
       const botMsg = document.createElement('div');
@@ -253,7 +205,7 @@
       `;
       rulebotChatWindow.appendChild(botMsg);
       rulebotChatWindow.scrollTop = rulebotChatWindow.scrollHeight;
-    }, 450);
+    }, 300);
   }
 
   function escapeHtml(str) {
@@ -262,7 +214,7 @@
     return div.innerHTML;
   }
 
-  // --- 7. EVENT SEARCH & CATEGORY FILTER ---
+  // --- 6. EVENT SEARCH & CATEGORY FILTER ---
   window.handleEventSearch = function (query) {
     const q = query.toLowerCase().trim();
     const cards = document.querySelectorAll('#events-browse-grid .event-browse-card');
@@ -290,20 +242,20 @@
   };
 
   window.showRegisterModal = function (eventName) {
-    window.showToast(`Registration request received for "${eventName}". Confirmation code sent!`);
+    window.showToast(`Registration request received for ${eventName}`);
   };
 
-  // --- 8. IDEACHECK SIMULATION ---
+  // --- 7. IDEACHECK SIMULATION ---
   window.runIdeaCheck = function () {
     const title = document.getElementById('idea-title').value.trim();
     const desc = document.getElementById('idea-desc').value.trim();
 
     if (!title || !desc) {
-      window.showToast('Please enter both project title and description to run IdeaCheck AI.');
+      window.showToast('Please enter project title and description');
       return;
     }
 
-    window.showToast('IdeaCheck AI: Analyzing feasibility, market fit & ReBuild guidelines...');
+    window.showToast('Analyzing idea against ReBuild guidelines');
 
     setTimeout(() => {
       const res = document.getElementById('ideacheck-results');
@@ -311,15 +263,15 @@
         res.classList.remove('hidden');
         res.scrollIntoView({ behavior: 'smooth' });
       }
-    }, 600);
+    }, 450);
   };
 
-  // --- 9. CERTIFICATES & ID CARD UTILS ---
+  // --- 8. UTILITIES ---
   window.copyCertLink = function () {
     const url = 'https://campuscode.co.in/verify/CC-CERT-2026-9812';
     if (navigator.clipboard) {
       navigator.clipboard.writeText(url).then(() => {
-        window.showToast('Verification link copied to clipboard!');
+        window.showToast('Verification link copied');
       });
     } else {
       window.showToast('Verified at: ' + url);
@@ -332,16 +284,18 @@
     });
     const badge = document.querySelector('.icon-dot-badge');
     if (badge) badge.style.display = 'none';
-    window.showToast('All notifications marked as read.');
+    window.showToast('All notifications marked as read');
   };
 
   window.handleLogout = function () {
-    window.showToast('Session logged out. Redirecting to login page...');
+    window.showToast('Session logged out');
+    setTimeout(() => {
+      window.location.href = 'login.html';
+    }, 600);
   };
 
   // --- INITIALIZATION ---
   document.addEventListener('DOMContentLoaded', () => {
-    // Check URL hash for direct deep-linking
     const hash = window.location.hash.replace('#', '');
     if (hash && document.getElementById(`view-${hash}`)) {
       window.navigateTo(hash);
@@ -349,9 +303,7 @@
       window.navigateTo('overview');
     }
 
-    init3DTilt();
     initCountdown();
   });
 
 })();
-

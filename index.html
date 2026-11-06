@@ -3,23 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CampusCode | Student Dashboard — ReBuild '26</title>
+  <title>CampusCode | Student Workspace — ReBuild '26</title>
   <meta name="description" content="CampusCode Student Workspace and Hackathon Dashboard for ReBuild '26.">
   
   <!-- Google Fonts: Inter & DM Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="dashboard-body">
+<body>
 
-  <!-- Mobile Topbar Overlay (Appears on small screens) -->
+  <!-- Mobile Topbar Overlay -->
   <header class="mobile-topbar" id="mobile-topbar">
     <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation menu">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
     </button>
     <div class="mobile-brand">
       <img src="campuscode-logo.png" alt="CampusCode" class="brand-logo-img">
@@ -39,7 +38,7 @@
       
       <!-- Brand Header -->
       <div class="sidebar-brand" onclick="navigateTo('overview')">
-        <img src="campuscode-logo.png" alt="CampusCode Three Slashes Logo" class="brand-logo-img">
+        <img src="campuscode-logo.png" alt="CampusCode Logo" class="brand-logo-img">
         <div class="brand-copy">
           <strong class="brand-title">CAMPUSCODE</strong>
           <span class="brand-tagline">HACKATHON ARENA</span>
@@ -50,37 +49,37 @@
       <nav class="sidebar-nav" aria-label="Sidebar Navigation">
         <button class="nav-item active" data-view="overview" onclick="navigateTo('overview')">
           <span class="nav-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
           </span>
           <span class="nav-label">Overview</span>
         </button>
 
         <button class="nav-item" data-view="events" onclick="navigateTo('events')">
           <span class="nav-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </span>
           <span class="nav-label">Events</span>
         </button>
 
         <button class="nav-item" data-view="my-events" onclick="navigateTo('my-events')">
           <span class="nav-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
           </span>
           <span class="nav-label">My Events</span>
-          <b class="nav-counter">03</b>
+          <span class="nav-counter">03</span>
         </button>
 
         <button class="nav-item" data-view="hackmate" onclick="navigateTo('hackmate')">
           <span class="nav-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </span>
-          <span class="nav-label">HackMate AI</span>
+          <span class="nav-label">HackMate</span>
           <span class="ai-badge">AI</span>
         </button>
 
         <button class="nav-item" data-view="ideacheck" onclick="navigateTo('ideacheck')">
           <span class="nav-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-7 7c0 2.5 1.5 4.5 3 6h8c1.5-1.5 3-3.5 3-6a7 7 0 0 0-7-7z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-7 7c0 2.5 1.5 4.5 3 6h8c1.5-1.5 3-3.5 3-6a7 7 0 0 0-7-7z"/></svg>
           </span>
           <span class="nav-label">IdeaCheck</span>
           <span class="ai-badge">AI</span>
@@ -88,21 +87,21 @@
 
         <button class="nav-item" data-view="certificates" onclick="navigateTo('certificates')">
           <span class="nav-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
           </span>
           <span class="nav-label">Certificates</span>
         </button>
 
         <button class="nav-item" data-view="digital-card" onclick="navigateTo('digital-card')">
           <span class="nav-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
           </span>
           <span class="nav-label">Digital Card</span>
         </button>
 
-        <button class="nav-item rulebot-nav-item" data-view="rulebot" onclick="navigateTo('rulebot')">
+        <button class="nav-item" data-view="rulebot" onclick="navigateTo('rulebot')">
           <span class="nav-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8.01" y2="16"/><line x1="16" y1="16" x2="16.01" y2="16"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8.01" y2="16"/><line x1="16" y1="16" x2="16.01" y2="16"/></svg>
           </span>
           <span class="nav-label">RuleBot</span>
           <span class="ai-badge">AI</span>
@@ -110,7 +109,7 @@
 
         <button class="nav-item" data-view="notifications" onclick="navigateTo('notifications')">
           <span class="nav-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
           </span>
           <span class="nav-label">Notifications</span>
           <span class="dot-badge"></span>
@@ -118,24 +117,24 @@
 
         <button class="nav-item" data-view="profile" onclick="navigateTo('profile')">
           <span class="nav-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           </span>
           <span class="nav-label">Profile</span>
         </button>
       </nav>
 
-      <!-- Sidebar Footer: Student Profile Card & Logout -->
+      <!-- Sidebar Footer -->
       <div class="sidebar-footer">
         <div class="sidebar-user-card" onclick="navigateTo('profile')" role="button" tabindex="0">
           <div class="user-avatar-initials">SK</div>
           <div class="user-meta">
             <strong class="user-name">Sai Krishna</strong>
-            <span class="user-college">B.Tech CSE · Round 1</span>
+            <span class="user-college">3rd Year CSE · Round 1</span>
             <span class="user-id">CC-2026-8849</span>
           </div>
         </div>
         <button class="sidebar-logout-btn" onclick="handleLogout()" title="Log out">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
           <span>Logout</span>
         </button>
       </div>
@@ -145,7 +144,7 @@
     <!-- MAIN VIEWPORT -->
     <div class="main-viewport">
       
-      <!-- TOP NAVIGATION BAR -->
+      <!-- TOPBAR -->
       <header class="topbar">
         <div class="topbar-left">
           <div class="breadcrumb">
@@ -159,20 +158,19 @@
         <div class="topbar-right">
           <!-- Active Competition Pill -->
           <div class="arena-live-chip">
-            <span class="pulsing-dot"></span>
-            <span class="live-chip-text">ROUND 1 · RECREATE LIVE</span>
+            <span class="status-dot-solid"></span>
+            <span>Round 1 · Recreate Live</span>
           </div>
 
           <!-- Notification Trigger -->
           <button class="topbar-icon-btn" onclick="navigateTo('notifications')" title="Notifications">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
             <span class="icon-dot-badge"></span>
           </button>
 
           <!-- Quick Digital ID Trigger -->
           <button class="topbar-pill-btn" onclick="navigateTo('digital-card')">
-            <span>ID CARD</span>
-            <b>↗</b>
+            <span>ID Card</span>
           </button>
 
           <!-- User Chip -->
@@ -183,81 +181,74 @@
         </div>
       </header>
 
-      <!-- CONTENT STAGE (DYNAMIC ROUTED SECTIONS) -->
+      <!-- CONTENT STAGE -->
       <main class="content-stage" id="content-stage">
 
         <!-- ============================================== -->
-        <!-- VIEW 1: OVERVIEW (DEFAULT) -->
+        <!-- VIEW 1: OVERVIEW -->
         <!-- ============================================== -->
         <section class="view-panel active" id="view-overview">
           
-          <!-- Page Header -->
           <header class="student-page-header">
-            <span class="section-eyebrow">STUDENT WORKSPACE / LIVE</span>
+            <span class="section-eyebrow">Student Workspace / Live</span>
             <h1 class="student-page-title">
-              WELCOME BACK, <span class="name-highlight">SAI</span>.
+              Overview · Sai Krishna
             </h1>
             <p class="student-page-desc">
               Your CampusCode activity is loaded directly from the backend.
             </p>
           </header>
 
-          <!-- FEATURED 3D DIMENSIONAL EVENT CARD: REBUILD '26 -->
+          <!-- FEATURED EVENT CARD: REBUILD '26 -->
           <div class="dimensional-stage">
-            <div class="student-hero-card tilt-card" id="rebuild-hero-card">
+            <div class="student-hero-card">
               
-              <!-- Ambient dimensional lighting elements -->
-              <div class="card-glow glow-purple"></div>
-              <div class="card-glow glow-lime"></div>
-              <div class="card-grid-texture"></div>
-
-              <!-- Card Content Column -->
               <div class="student-hero-copy">
                 <div class="hero-tag-row">
                   <span class="hero-live-pill">
-                    <span class="pulsing-green-dot"></span> LIVE HACKATHON
+                    <span class="status-dot-solid" style="width:5px; height:5px;"></span> Live Hackathon
                   </span>
-                  <span class="hero-track-label">ROUND 1 · FRIDAY 6 NOV</span>
+                  <span class="hero-track-label">Round 1 · Friday 6 Nov</span>
                 </div>
                 
                 <h2 class="hero-event-title">ReBuild '26</h2>
-                <div class="hero-slogan">BUILD · LEARN · COLLABORATE</div>
+                <div class="hero-slogan">Build · Learn · Ship</div>
                 
                 <p class="hero-summary">
-                  Recreate it faithfully on Friday. Rebuild it beautifully on Saturday. 
-                  Individual hackathon. Frontend only. Mock data fine.
+                  Recreate the 4 pages faithfully on Friday. Rebuild them beautifully on Saturday. 
+                  Individual hackathon with verified client-side mock data.
                 </p>
 
                 <div class="hero-actions">
                   <button class="student-primary-btn" onclick="navigateTo('my-events')">
-                    <span>OPEN JOURNEY</span>
-                    <b>↗</b>
+                    <span>Open Journey</span>
                   </button>
                   <button class="student-outline-btn" onclick="openModal('rebuild-brief')">
-                    <span>VIEW BRIEF & SCHEDULE</span>
+                    <span>Schedule & Rules</span>
                   </button>
                 </div>
               </div>
 
-              <!-- Dimensional Visual Mark Column -->
+              <!-- UNSLOPPED MOMENT: Structured Event Passport Panel -->
               <div class="student-hero-visual">
-                <div class="hero-depth-orb">
-                  <div class="orb-inner-ring"></div>
-                  <div class="floating-badge badge-top">
-                    <span class="badge-mono">DEADLINE</span>
-                    <strong class="badge-highlight" id="live-countdown">13h 48m LEFT</strong>
-                  </div>
-                  <div class="orb-center-mark">
-                    <div class="center-brand-slashes">
-                      <span></span>
-                      <span></span>
-                      <span></span>
+                <div class="hero-status-panel">
+                  <div class="status-panel-row">
+                    <div class="brand-slashes-mini">
+                      <span></span><span></span><span></span>
                     </div>
-                    <span class="center-code">R1 ACTIVE</span>
+                    <span class="panel-row-val">ReBuild '26</span>
                   </div>
-                  <div class="floating-badge badge-bottom">
-                    <span class="badge-mono">STATUS</span>
-                    <strong class="badge-status-ok">VERIFIED PARTICIPANT</strong>
+                  <div class="status-panel-row">
+                    <span class="panel-row-label">TRACK</span>
+                    <span class="panel-row-val">Frontend Only (4 Pages)</span>
+                  </div>
+                  <div class="status-panel-row">
+                    <span class="panel-row-label">DEADLINE</span>
+                    <span class="panel-row-val" id="live-countdown">13h 05m Left</span>
+                  </div>
+                  <div class="status-panel-row">
+                    <span class="panel-row-label">PARTICIPANT</span>
+                    <span class="panel-row-val" style="color:var(--lime-dark);">Verified Solo</span>
                   </div>
                 </div>
               </div>
@@ -268,67 +259,63 @@
           <!-- FOUR STATISTIC CARDS -->
           <div class="student-stats-grid">
             
-            <article class="student-stat-card tilt-stat-card">
-              <span class="stat-label">REGISTERED</span>
+            <article class="student-stat-card">
+              <span class="stat-label">Registered</span>
               <div class="stat-number-wrapper">
                 <strong class="stat-number">03</strong>
               </div>
               <div class="stat-footer">
-                <span class="stat-detail">FROM BACKEND</span>
-                <span class="stat-sparkle">↗</span>
+                <span class="stat-detail">All time</span>
               </div>
             </article>
 
-            <article class="student-stat-card tilt-stat-card highlight-lime-border">
-              <span class="stat-label">ONGOING</span>
+            <article class="student-stat-card">
+              <span class="stat-label">Ongoing</span>
               <div class="stat-number-wrapper">
-                <strong class="stat-number text-accent">01</strong>
+                <strong class="stat-number" style="color:var(--lime-dark);">01</strong>
               </div>
               <div class="stat-footer">
-                <span class="stat-detail">ACTIVE NOW</span>
+                <span class="stat-detail">Active now</span>
                 <span class="stat-pill-mini">ReBuild '26</span>
               </div>
             </article>
 
-            <article class="student-stat-card tilt-stat-card">
-              <span class="stat-label">COMPLETED</span>
+            <article class="student-stat-card">
+              <span class="stat-label">Completed</span>
               <div class="stat-number-wrapper">
                 <strong class="stat-number">02</strong>
               </div>
               <div class="stat-footer">
-                <span class="stat-detail">SUBMITTED</span>
-                <span class="stat-sparkle">✓</span>
+                <span class="stat-detail">Submitted</span>
               </div>
             </article>
 
-            <article class="student-stat-card tilt-stat-card">
-              <span class="stat-label">CERTIFICATES</span>
+            <article class="student-stat-card">
+              <span class="stat-label">Certificates</span>
               <div class="stat-number-wrapper">
                 <strong class="stat-number">01</strong>
               </div>
               <div class="stat-footer">
-                <span class="stat-detail">VERIFIED</span>
-                <span class="stat-sparkle">★</span>
+                <span class="stat-detail">Verified on ledger</span>
               </div>
             </article>
 
           </div>
 
-          <!-- Quick Action Guidance Panel (RuleBot & Submission Reminder) -->
+          <!-- Quick Action Guidance Panel -->
           <div class="banner-quick-action">
             <div class="banner-left">
               <div class="banner-icon-box">
                 <span class="banner-ai-tag">AI</span>
               </div>
               <div class="banner-text">
-                <strong>Need help with Round 1 Submission Guidelines?</strong>
-                <p>Learn about the 40% AI code verification rule, Netlify Drop, or submission links.</p>
+                <strong>Round 1 Submission Guidelines</strong>
+                <p>Rules regarding 40% AI code verification, Netlify Drop deployment, and submission forms.</p>
               </div>
             </div>
             <div class="banner-right">
               <button class="student-outline-btn btn-sm" onclick="navigateTo('rulebot')">
-                <span>ASK RULEBOT AI</span>
-                <b>↗</b>
+                <span>Ask RuleBot</span>
               </button>
             </div>
           </div>
@@ -343,19 +330,18 @@
           
           <header class="student-page-header header-with-counter">
             <div>
-              <span class="section-eyebrow">MY ACTIVITY / BACKEND DATA</span>
+              <span class="section-eyebrow">My Activity / Backend Data</span>
               <div class="title-counter-row">
-                <h1 class="student-page-title">MY EVENTS.</h1>
+                <h1 class="student-page-title">My Events</h1>
                 <span class="counter-badge">03</span>
               </div>
               <p class="student-page-desc">
-                Every event you joined, in one place. Open one to see its rounds, team, results and certificates.
+                Joined events, active rounds, teams, submissions, and certificates.
               </p>
             </div>
             <div class="header-action-group">
               <button class="student-outline-btn btn-sm" onclick="navigateTo('events')">
-                <span>EXPLORE ALL EVENTS</span>
-                <b>↗</b>
+                <span>Browse All Events</span>
               </button>
             </div>
           </header>
@@ -363,122 +349,113 @@
           <div class="registration-grid">
             
             <!-- Card 1: ReBuild '26 -->
-            <article class="registration-card tilt-card">
+            <article class="registration-card">
               <div class="reg-card-top">
                 <div class="reg-status-pill in-progress">
-                  <span class="pulsing-green-dot"></span>
-                  <span>ROUND 1 IN PROGRESS</span>
+                  <span class="status-dot-solid" style="width:5px; height:5px;"></span>
+                  <span>Round 1 in progress</span>
                 </div>
-                <span class="reg-id-tag">ID: CC-REG-2601</span>
+                <span class="reg-id-tag">CC-REG-2601</span>
               </div>
 
-              <div class="reg-card-banner banner-rebuild">
-                <div class="banner-content">
-                  <span class="banner-event-type">ONLINE HACKATHON</span>
-                  <h3 class="banner-event-heading">ReBuild '26</h3>
-                  <span class="banner-event-dates">NOV 6-7, 2026 · CHENNAI</span>
-                </div>
+              <div class="reg-card-banner">
+                <span class="banner-event-type">ONLINE HACKATHON</span>
+                <h3 class="banner-event-heading">ReBuild '26</h3>
+                <span class="banner-event-dates">Nov 6–7, 2026</span>
               </div>
 
               <div class="reg-details-list">
                 <div class="detail-row">
-                  <span class="dt-label">TRACK:</span>
-                  <strong class="dt-val">Frontend Only (4 Pages Recreate)</strong>
+                  <span class="dt-label">Track</span>
+                  <strong class="dt-val">Frontend Only</strong>
                 </div>
                 <div class="detail-row">
-                  <span class="dt-label">TEAM:</span>
-                  <strong class="dt-val">Sai Krishna (Solo Builder)</strong>
+                  <span class="dt-label">Team</span>
+                  <strong class="dt-val">Sai Krishna (Solo)</strong>
                 </div>
                 <div class="detail-row">
-                  <span class="dt-label">DEADLINE:</span>
-                  <strong class="dt-val text-accent">Today, 10:00 PM IST</strong>
+                  <span class="dt-label">Deadline</span>
+                  <strong class="dt-val" style="color:var(--lime-dark);">Today, 10:00 PM IST</strong>
                 </div>
               </div>
 
               <div class="reg-card-action">
                 <button class="student-primary-btn w-full" onclick="openModal('rebuild-brief')">
-                  <span>OPEN JOURNEY</span>
-                  <b>↗</b>
+                  <span>Open Journey</span>
                 </button>
               </div>
             </article>
 
-            <!-- Card 2: FirstCommit '26 Quiz Competition 2.0 -->
-            <article class="registration-card tilt-card">
+            <!-- Card 2: FirstCommit '26 Quiz 2.0 -->
+            <article class="registration-card">
               <div class="reg-card-top">
                 <div class="reg-status-pill completed">
-                  <span>COMPLETED · RANK #4</span>
+                  <span>Completed · Rank #4</span>
                 </div>
-                <span class="reg-id-tag">ID: CC-REG-2580</span>
+                <span class="reg-id-tag">CC-REG-2580</span>
               </div>
 
-              <div class="reg-card-banner banner-quiz-two">
-                <div class="banner-content">
-                  <span class="banner-event-type">SPEED CODING & APTITUDE</span>
-                  <h3 class="banner-event-heading">FirstCommit '26 Quiz 2.0</h3>
-                  <span class="banner-event-dates">OCT 28, 2026 · TIMED</span>
-                </div>
+              <div class="reg-card-banner">
+                <span class="banner-event-type">SPEED CODING & APTITUDE</span>
+                <h3 class="banner-event-heading">FirstCommit '26 Quiz 2.0</h3>
+                <span class="banner-event-dates">Oct 28, 2026</span>
               </div>
 
               <div class="reg-details-list">
                 <div class="detail-row">
-                  <span class="dt-label">SCORE:</span>
-                  <strong class="dt-val">94 / 100 (Top 5%)</strong>
+                  <span class="dt-label">Score</span>
+                  <strong class="dt-val">94 / 100</strong>
                 </div>
                 <div class="detail-row">
-                  <span class="dt-label">RESULT:</span>
-                  <strong class="dt-val">Shortlisted for ReBuild '26</strong>
+                  <span class="dt-label">Result</span>
+                  <strong class="dt-val">Shortlisted</strong>
                 </div>
                 <div class="detail-row">
-                  <span class="dt-label">CERTIFICATE:</span>
-                  <strong class="dt-val">Generated & Verified</strong>
+                  <span class="dt-label">Certificate</span>
+                  <strong class="dt-val">Verified</strong>
                 </div>
               </div>
 
               <div class="reg-card-action">
                 <button class="student-outline-btn w-full" onclick="navigateTo('certificates')">
-                  <span>VIEW CERTIFICATE</span>
-                  <b>★</b>
+                  <span>View Certificate</span>
                 </button>
               </div>
             </article>
 
-            <!-- Card 3: FirstCommit '26 Quiz Competition 1.0 -->
-            <article class="registration-card tilt-card">
+            <!-- Card 3: FirstCommit '26 Quiz 1.0 -->
+            <article class="registration-card">
               <div class="reg-card-top">
                 <div class="reg-status-pill completed">
-                  <span>COMPLETED</span>
+                  <span>Completed</span>
                 </div>
-                <span class="reg-id-tag">ID: CC-REG-2490</span>
+                <span class="reg-id-tag">CC-REG-2490</span>
               </div>
 
-              <div class="reg-card-banner banner-quiz-one">
-                <div class="banner-content">
-                  <span class="banner-event-type">FOUNDATION QUIZ</span>
-                  <h3 class="banner-event-heading">FirstCommit '26 Quiz</h3>
-                  <span class="banner-event-dates">OCT 15, 2026 · ARCHIVED</span>
-                </div>
+              <div class="reg-card-banner">
+                <span class="banner-event-type">FOUNDATION QUIZ</span>
+                <h3 class="banner-event-heading">FirstCommit '26 Quiz</h3>
+                <span class="banner-event-dates">Oct 15, 2026</span>
               </div>
 
               <div class="reg-details-list">
                 <div class="detail-row">
-                  <span class="dt-label">SCORE:</span>
+                  <span class="dt-label">Score</span>
                   <strong class="dt-val">82 / 100</strong>
                 </div>
                 <div class="detail-row">
-                  <span class="dt-label">MODE:</span>
+                  <span class="dt-label">Mode</span>
                   <strong class="dt-val">Participant</strong>
                 </div>
                 <div class="detail-row">
-                  <span class="dt-label">STATUS:</span>
-                  <strong class="dt-val">Participation Issued</strong>
+                  <span class="dt-label">Status</span>
+                  <strong class="dt-val">Issued</strong>
                 </div>
               </div>
 
               <div class="reg-card-action">
-                <button class="student-outline-btn w-full" onclick="showToast('Archive record: Participation verified on ledger.')">
-                  <span>VIEW DETAILS</span>
-                  <b>↗</b>
+                <button class="student-outline-btn w-full" onclick="showToast('Participation record verified on ledger.')">
+                  <span>View Details</span>
                 </button>
               </div>
             </article>
@@ -489,14 +466,14 @@
 
 
         <!-- ============================================== -->
-        <!-- VIEW 3: EVENTS (EXPLORE / AVAILABLE) -->
+        <!-- VIEW 3: EVENTS -->
         <!-- ============================================== -->
         <section class="view-panel" id="view-events">
           
           <header class="student-page-header">
-            <span class="section-eyebrow">EXPLORE ARENA / DISCOVERY</span>
+            <span class="section-eyebrow">Explore Arena / Discovery</span>
             <div class="title-counter-row">
-              <h1 class="student-page-title">EVENTS.</h1>
+              <h1 class="student-page-title">Available Events</h1>
               <span class="counter-badge">04</span>
             </div>
             <p class="student-page-desc">
@@ -504,111 +481,101 @@
             </p>
           </header>
 
-          <!-- Filter & Search Controls -->
           <div class="events-filter-bar">
             <div class="search-box">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-              <input type="text" id="event-search-input" placeholder="Search hackathons, topics, tech stack..." oninput="handleEventSearch(this.value)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" id="event-search-input" placeholder="Search events" oninput="handleEventSearch(this.value)">
             </div>
             <div class="category-tabs">
-              <button class="cat-pill active" onclick="filterEvents('all', this)">ALL</button>
-              <button class="cat-pill" onclick="filterEvents('hackathon', this)">HACKATHONS</button>
-              <button class="cat-pill" onclick="filterEvents('ai', this)">AI SPRINTS</button>
-              <button class="cat-pill" onclick="filterEvents('ctf', this)">SECURITY CTF</button>
+              <button class="cat-pill active" onclick="filterEvents('all', this)">All</button>
+              <button class="cat-pill" onclick="filterEvents('hackathon', this)">Hackathons</button>
+              <button class="cat-pill" onclick="filterEvents('ai', this)">AI Sprints</button>
+              <button class="cat-pill" onclick="filterEvents('ctf', this)">Security CTF</button>
             </div>
           </div>
 
-          <!-- Events Listing Grid -->
           <div class="events-browse-grid" id="events-browse-grid">
             
-            <!-- Event 1 -->
-            <article class="event-browse-card tilt-card" data-category="hackathon">
+            <article class="event-browse-card" data-category="hackathon">
               <div class="event-card-header">
-                <span class="event-badge badge-active">REGISTRATION OPEN</span>
-                <span class="prize-tag">₹50,000 PRIZE</span>
+                <span class="event-badge badge-active">Registration Open</span>
+                <span class="prize-tag">₹50,000 Prize</span>
               </div>
               <h3 class="event-card-title">Agentic AI Sprint '26</h3>
               <p class="event-card-desc">
-                Build autonomous multi-agent workflows and developer tools using LLMs and modern web frameworks.
+                Build autonomous multi-agent developer workflows using LLMs and modern web frameworks.
               </p>
               <div class="event-meta-tags">
-                <span class="mono-tag">NOV 14-15</span>
-                <span class="mono-tag">ONLINE</span>
-                <span class="mono-tag">TEAMS 1-3</span>
+                <span class="mono-tag">Nov 14–15</span>
+                <span class="mono-tag">Online</span>
+                <span class="mono-tag">Teams 1–3</span>
               </div>
               <div class="event-card-footer">
                 <button class="student-primary-btn w-full" onclick="showRegisterModal('Agentic AI Sprint \'26')">
-                  <span>REGISTER NOW</span>
-                  <b>↗</b>
+                  <span>Register Now</span>
                 </button>
               </div>
             </article>
 
-            <!-- Event 2 -->
-            <article class="event-browse-card tilt-card" data-category="hackathon">
+            <article class="event-browse-card" data-category="hackathon">
               <div class="event-card-header">
-                <span class="event-badge badge-active">REGISTRATION OPEN</span>
-                <span class="prize-tag">₹75,000 PRIZE</span>
+                <span class="event-badge badge-active">Registration Open</span>
+                <span class="prize-tag">₹75,000 Prize</span>
               </div>
               <h3 class="event-card-title">FullStack Forge 2026</h3>
               <p class="event-card-desc">
-                36-hour intense hackathon focused on shipping scalable SaaS products with clean APIs and frontend design.
+                36-hour sprint focused on shipping scalable SaaS products with clean APIs and frontend design.
               </p>
               <div class="event-meta-tags">
-                <span class="mono-tag">NOV 21-22</span>
-                <span class="mono-tag">HYBRID</span>
-                <span class="mono-tag">TEAMS 2-4</span>
+                <span class="mono-tag">Nov 21–22</span>
+                <span class="mono-tag">Hybrid</span>
+                <span class="mono-tag">Teams 2–4</span>
               </div>
               <div class="event-card-footer">
                 <button class="student-primary-btn w-full" onclick="showRegisterModal('FullStack Forge 2026')">
-                  <span>REGISTER NOW</span>
-                  <b>↗</b>
+                  <span>Register Now</span>
                 </button>
               </div>
             </article>
 
-            <!-- Event 3 -->
-            <article class="event-browse-card tilt-card" data-category="ctf">
+            <article class="event-browse-card" data-category="ctf">
               <div class="event-card-header">
-                <span class="event-badge badge-upcoming">UPCOMING</span>
-                <span class="prize-tag">₹40,000 PRIZE</span>
+                <span class="event-badge badge-upcoming">Upcoming</span>
+                <span class="prize-tag">₹40,000 Prize</span>
               </div>
               <h3 class="event-card-title">CyberShield CTF Challenge</h3>
               <p class="event-card-desc">
                 Defend web infrastructure, reverse engineer vulnerable binaries, and solve cryptography puzzles.
               </p>
               <div class="event-meta-tags">
-                <span class="mono-tag">DEC 02-03</span>
-                <span class="mono-tag">INDIVIDUAL</span>
-                <span class="mono-tag">ONLINE</span>
+                <span class="mono-tag">Dec 02–03</span>
+                <span class="mono-tag">Individual</span>
+                <span class="mono-tag">Online</span>
               </div>
               <div class="event-card-footer">
-                <button class="student-outline-btn w-full" onclick="showToast('CyberShield CTF registration begins Nov 20.')">
-                  <span>REMIND ME</span>
-                  <b>🔔</b>
+                <button class="student-outline-btn w-full" onclick="showToast('CyberShield CTF registration begins Nov 20')">
+                  <span>Remind Me</span>
                 </button>
               </div>
             </article>
 
-            <!-- Event 4 -->
-            <article class="event-browse-card tilt-card" data-category="ai">
+            <article class="event-browse-card" data-category="ai">
               <div class="event-card-header">
-                <span class="event-badge badge-upcoming">DECEMBER</span>
-                <span class="prize-tag">INTERNSHIPS</span>
+                <span class="event-badge badge-upcoming">December</span>
+                <span class="prize-tag">Internships</span>
               </div>
               <h3 class="event-card-title">CampusCode Design Jam</h3>
               <p class="event-card-desc">
-                Creative design & micro-interaction sprint for product designers, creative developers and design engineers.
+                Creative design sprint for product designers and frontend engineers.
               </p>
               <div class="event-meta-tags">
-                <span class="mono-tag">DEC 12</span>
-                <span class="mono-tag">DESIGN & CODE</span>
-                <span class="mono-tag">SOLO</span>
+                <span class="mono-tag">Dec 12</span>
+                <span class="mono-tag">Design & Code</span>
+                <span class="mono-tag">Solo</span>
               </div>
               <div class="event-card-footer">
-                <button class="student-outline-btn w-full" onclick="showToast('CampusCode Design Jam details dropping soon.')">
-                  <span>VIEW BRIEF</span>
-                  <b>↗</b>
+                <button class="student-outline-btn w-full" onclick="showToast('CampusCode Design Jam brief releasing soon')">
+                  <span>View Brief</span>
                 </button>
               </div>
             </article>
@@ -623,30 +590,27 @@
         <!-- ============================================== -->
         <section class="view-panel" id="view-certificates">
           <header class="student-page-header">
-            <span class="section-eyebrow">CREDENTIALS / VERIFIED LEDGER</span>
-            <h1 class="student-page-title">CERTIFICATES.</h1>
+            <span class="section-eyebrow">Credentials / Verified Ledger</span>
+            <h1 class="student-page-title">Certificates</h1>
             <p class="student-page-desc">Cryptographically verifiable certificates issued on CampusCode.</p>
           </header>
 
-          <div class="certificate-display-box tilt-card">
-            <div class="cert-watermark">CAMPUSCODE</div>
+          <div class="certificate-display-box">
             <div class="cert-header">
               <div class="cert-brand">
                 <div class="brand-three-slashes">
-                  <span></span>
-                  <span></span>
-                  <span></span>
+                  <span></span><span></span><span></span>
                 </div>
-                <strong>CAMPUSCODE ARENA</strong>
+                <strong style="font-size:12px; font-weight:600;">CampusCode Arena</strong>
               </div>
-              <span class="cert-badge-stamp valid">VERIFIED & VALID</span>
+              <span class="cert-badge-stamp valid">Verified & Valid</span>
             </div>
 
             <div class="cert-body">
-              <span class="cert-subtitle">CERTIFICATE OF EXCELLENCE & PARTICIPATION</span>
-              <h2 class="cert-recipient">SAI KRISHNA</h2>
+              <span class="cert-subtitle">CERTIFICATE OF DISTINCTION</span>
+              <h2 class="cert-recipient">Sai Krishna</h2>
               <p class="cert-citation">
-                has successfully qualified with distinction in the <strong>FirstCommit '26 Speed Coding & Quiz Competition</strong> 
+                Qualified in the <strong>FirstCommit '26 Speed Coding & Quiz Competition</strong>, 
                 placing in the top 5th percentile across all collegiate participants.
               </p>
             </div>
@@ -658,24 +622,22 @@
               </div>
               <div class="cert-meta-item">
                 <small>ISSUED DATE</small>
-                <strong>OCTOBER 29, 2026</strong>
+                <strong>October 29, 2026</strong>
               </div>
               <div class="cert-qr-box">
                 <div class="mini-qr-code" title="Scan to verify at campuscode.co.in">
                   <div class="qr-pattern"></div>
                 </div>
-                <span>SCAN TO VERIFY</span>
+                <span>Scan to verify</span>
               </div>
             </div>
 
             <div class="cert-actions-bar">
-              <button class="student-primary-btn" onclick="showToast('Downloading high-res PDF certificate...')">
-                <span>DOWNLOAD PDF</span>
-                <b>↓</b>
+              <button class="student-primary-btn" onclick="showToast('Downloading verified certificate PDF')">
+                <span>Download PDF</span>
               </button>
               <button class="student-outline-btn" onclick="copyCertLink()">
-                <span>COPY VERIFICATION LINK</span>
-                <b>🔗</b>
+                <span>Copy Verification Link</span>
               </button>
             </div>
           </div>
@@ -687,15 +649,13 @@
         <!-- ============================================== -->
         <section class="view-panel" id="view-digital-card">
           <header class="student-page-header">
-            <span class="section-eyebrow">STUDENT IDENTITY / SMART PASS</span>
-            <h1 class="student-page-title">DIGITAL ID CARD.</h1>
-            <p class="student-page-desc">Your official digital pass for hackathon venue check-in and offline rounds.</p>
+            <span class="section-eyebrow">Student Identity / Pass</span>
+            <h1 class="student-page-title">Digital ID Card</h1>
+            <p class="student-page-desc">Official digital pass for hackathon venue check-in and offline rounds.</p>
           </header>
 
           <div class="id-card-stage">
-            <div class="digital-student-id-card tilt-card" id="digital-student-id">
-              <div class="id-card-hologram"></div>
-              
+            <div class="digital-student-id-card">
               <div class="id-top">
                 <div class="id-logo">
                   <div class="brand-three-slashes">
@@ -703,7 +663,7 @@
                   </div>
                   <div>
                     <strong>CAMPUSCODE</strong>
-                    <small>OFFICIAL STUDENT PASS</small>
+                    <small>STUDENT PASS</small>
                   </div>
                 </div>
                 <div class="id-chip-hardware"></div>
@@ -712,34 +672,32 @@
               <div class="id-main-row">
                 <div class="id-avatar-frame">
                   <div class="id-photo">SK</div>
-                  <span class="id-verified-tick">✓</span>
                 </div>
                 <div class="id-info-col">
-                  <h3 class="id-student-name">SAI KRISHNA</h3>
-                  <span class="id-student-role">STUDENT HACKER · CSE</span>
+                  <h3 class="id-student-name">Sai Krishna</h3>
+                  <span class="id-student-role">Student Hacker · CSE</span>
                   <div class="id-data-grid">
                     <div>
                       <small>CAMPUSCODE ID</small>
                       <strong>CC-2026-8849</strong>
                     </div>
                     <div>
-                      <small>TRACKING TEAM</small>
+                      <small>TEAM</small>
                       <strong>ReBuild-Solo</strong>
                     </div>
                     <div>
                       <small>STATUS</small>
-                      <strong class="text-accent">VERIFIED</strong>
+                      <strong style="color:var(--lime-dark);">Verified</strong>
                     </div>
                     <div>
                       <small>VALID THRU</small>
-                      <strong>NOV 2027</strong>
+                      <strong>Nov 2027</strong>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div class="id-bottom-barcode">
-                <div class="barcode-graphic"></div>
                 <span class="barcode-num">|||| | ||||| |||| || |||||| | ||| 8849-2026</span>
               </div>
             </div>
@@ -748,18 +706,18 @@
 
 
         <!-- ============================================== -->
-        <!-- VIEW 6: RULEBOT AI (INTERACTIVE KNOWLEDGE BOT) -->
+        <!-- VIEW 6: RULEBOT AI -->
         <!-- ============================================== -->
         <section class="view-panel" id="view-rulebot">
           <header class="student-page-header">
-            <span class="section-eyebrow">OFFICIAL AI HELPER / REBUILD '26</span>
-            <h1 class="student-page-title">RULEBOT AI.</h1>
+            <span class="section-eyebrow">Official Assistant / ReBuild '26</span>
+            <h1 class="student-page-title">RuleBot</h1>
             <p class="student-page-desc">Instant verified answers regarding the schedule, 40% AI code rule, and submission format.</p>
           </header>
 
           <div class="rulebot-container">
             <div class="rulebot-quick-prompts">
-              <span class="quick-title">FREQUENT QUESTIONS:</span>
+              <span class="quick-title">Questions:</span>
               <button class="prompt-chip" onclick="askRulebot('What is the 40% AI code limit rule?')">40% AI Code Rule</button>
               <button class="prompt-chip" onclick="askRulebot('What is the Round 1 deadline and submission format?')">Round 1 Deadline</button>
               <button class="prompt-chip" onclick="askRulebot('How do I deploy on Netlify Drop without GitHub?')">Netlify Drop Instructions</button>
@@ -770,17 +728,16 @@
               <div class="bot-msg">
                 <div class="bot-avatar">AI</div>
                 <div class="bot-bubble">
-                  Hello Sai! I am <strong>RuleBot</strong>, the official AI assistant for <strong>ReBuild '26</strong>. 
-                  Ask me any rule, guideline, or submission question, or click one of the quick prompts above!
+                  Hello Sai. I am <strong>RuleBot</strong>, the official assistant for <strong>ReBuild '26</strong>. 
+                  Ask any guideline, schedule, or submission questions, or select a prompt above.
                 </div>
               </div>
             </div>
 
             <form class="rulebot-input-bar" onsubmit="handleRulebotSubmit(event)">
-              <input type="text" id="rulebot-input" placeholder="Ask RuleBot anything about ReBuild '26 rules..." autocomplete="off">
+              <input type="text" id="rulebot-input" placeholder="Ask RuleBot about ReBuild '26 rules" autocomplete="off">
               <button type="submit" class="student-primary-btn btn-sm">
-                <span>SEND</span>
-                <b>→</b>
+                <span>Send</span>
               </button>
             </form>
           </div>
@@ -788,23 +745,23 @@
 
 
         <!-- ============================================== -->
-        <!-- VIEW 7: HACKMATE AI (TEAMMATES & NETWORKING) -->
+        <!-- VIEW 7: HACKMATE AI -->
         <!-- ============================================== -->
         <section class="view-panel" id="view-hackmate">
           <header class="student-page-header">
-            <span class="section-eyebrow">AI TEAM MATCHER / ARENA</span>
-            <h1 class="student-page-title">HACKMATE AI.</h1>
-            <p class="student-page-desc">Find compatible teammates by skill stack and CampusCode ID.</p>
+            <span class="section-eyebrow">Team Matching / Arena</span>
+            <h1 class="student-page-title">HackMate</h1>
+            <p class="student-page-desc">Connect with compatible teammates by skill stack and CampusCode ID.</p>
           </header>
 
           <div class="hackmate-shell">
             <div class="hackmate-search-row">
-              <input type="text" class="hackmate-input" placeholder="Search by CampusCode ID or Skills (e.g. React, Tailwind, Python)...">
-              <button class="student-primary-btn"><span>FIND MATCHES</span><b>↗</b></button>
+              <input type="text" class="hackmate-input" placeholder="Search by CampusCode ID or Skills">
+              <button class="student-primary-btn"><span>Find Matches</span></button>
             </div>
 
             <div class="hackmate-results-grid">
-              <div class="hacker-card tilt-card">
+              <div class="hacker-card">
                 <div class="hacker-top">
                   <div class="hacker-av">AP</div>
                   <div>
@@ -813,12 +770,12 @@
                   </div>
                 </div>
                 <div class="hacker-skills">
-                  <span>Figma</span><span>CSS3</span><span>Animations</span>
+                  <span>Figma</span><span>CSS</span><span>Design</span>
                 </div>
-                <button class="student-outline-btn btn-sm w-full" onclick="showToast('Invitation sent to Aditi!')">CONNECT ON HACKMATE</button>
+                <button class="student-outline-btn btn-sm w-full" onclick="showToast('Invitation sent to Aditi')">Connect</button>
               </div>
 
-              <div class="hacker-card tilt-card">
+              <div class="hacker-card">
                 <div class="hacker-top">
                   <div class="hacker-av">RV</div>
                   <div>
@@ -829,7 +786,7 @@
                 <div class="hacker-skills">
                   <span>Go</span><span>PostgreSQL</span><span>Docker</span>
                 </div>
-                <button class="student-outline-btn btn-sm w-full" onclick="showToast('Invitation sent to Rohit!')">CONNECT ON HACKMATE</button>
+                <button class="student-outline-btn btn-sm w-full" onclick="showToast('Invitation sent to Rohit')">Connect</button>
               </div>
             </div>
           </div>
@@ -837,33 +794,32 @@
 
 
         <!-- ============================================== -->
-        <!-- VIEW 8: IDEACHECK AI -->
+        <!-- VIEW 8: IDEACHECK -->
         <!-- ============================================== -->
         <section class="view-panel" id="view-ideacheck">
           <header class="student-page-header">
-            <span class="section-eyebrow">PROJECT SCREENING / AI REVIEW</span>
-            <h1 class="student-page-title">IDEACHECK AI.</h1>
-            <p class="student-page-desc">Pre-screen your hackathon idea against originality and feasibility rubrics.</p>
+            <span class="section-eyebrow">Project Screening / Review</span>
+            <h1 class="student-page-title">IdeaCheck</h1>
+            <p class="student-page-desc">Pre-screen your hackathon idea against originality and feasibility criteria.</p>
           </header>
 
-          <div class="ideacheck-card tilt-card">
-            <label class="input-label" for="idea-title">PROJECT TITLE</label>
-            <input type="text" id="idea-title" class="std-input" placeholder="e.g. Dimensional Student Workspace">
+          <div class="ideacheck-card">
+            <label class="input-label" for="idea-title">Project Title</label>
+            <input type="text" id="idea-title" class="std-input" placeholder="e.g. Student Workspace">
             
-            <label class="input-label" for="idea-desc">IDEA DESCRIPTION & TECH STACK</label>
-            <textarea id="idea-desc" class="std-textarea" rows="4" placeholder="Describe the problem, target users, and technical architecture..."></textarea>
+            <label class="input-label" for="idea-desc">Description & Stack</label>
+            <textarea id="idea-desc" class="std-textarea" rows="3" placeholder="Describe the problem, target users, and technical architecture"></textarea>
             
             <button class="student-primary-btn" onclick="runIdeaCheck()">
-              <span>ANALYZE WITH IDEACHECK AI</span>
-              <b>⚡</b>
+              <span>Analyze with IdeaCheck</span>
             </button>
 
             <div id="ideacheck-results" class="ideacheck-feedback hidden">
               <div class="feedback-badge-row">
-                <span class="score-badge">FEASIBILITY: 9.2/10</span>
-                <span class="score-badge">ORIGINALITY: 8.8/10</span>
+                <span class="score-badge">Feasibility: 9.2/10</span>
+                <span class="score-badge">Originality: 8.8/10</span>
               </div>
-              <p><strong>Verdict:</strong> Strong submission concept. Meets ReBuild '26 Round 1 criteria for faithful recreation with clean frontend polish.</p>
+              <p><strong>Verdict:</strong> Clean submission concept. Meets ReBuild '26 Round 1 criteria for faithful recreation with refined frontend craft.</p>
             </div>
           </div>
         </section>
@@ -874,39 +830,39 @@
         <!-- ============================================== -->
         <section class="view-panel" id="view-notifications">
           <header class="student-page-header">
-            <span class="section-eyebrow">ACTIVITY LOG / UPDATES</span>
+            <span class="section-eyebrow">Activity Log / Updates</span>
             <div class="title-counter-row">
-              <h1 class="student-page-title">NOTIFICATIONS.</h1>
-              <button class="student-outline-btn btn-sm" onclick="markAllNotificationsRead()">MARK ALL AS READ</button>
+              <h1 class="student-page-title">Notifications</h1>
+              <button class="student-outline-btn btn-sm" onclick="markAllNotificationsRead()">Mark all as read</button>
             </div>
             <p class="student-page-desc">Official announcements, submission confirmations, and round alerts.</p>
           </header>
 
           <div class="notif-list">
             <div class="notif-item unread">
-              <div class="notif-icon-box">⚡</div>
+              <div class="notif-icon-box">R1</div>
               <div class="notif-body">
-                <strong>ReBuild '26 Round 1 is Live!</strong>
+                <strong>ReBuild '26 Round 1 is live</strong>
                 <p>Recreate the 4 pages faithfully. Deadline is tonight at 10:00 PM IST. Submit your live link on the portal.</p>
-                <small class="mono-meta">08:00 AM · TODAY</small>
+                <small class="mono-meta">08:00 AM · Today</small>
               </div>
             </div>
 
             <div class="notif-item">
-              <div class="notif-icon-box">★</div>
+              <div class="notif-icon-box">QC</div>
               <div class="notif-body">
-                <strong>FirstCommit '26 Certificate Issued</strong>
+                <strong>FirstCommit '26 certificate issued</strong>
                 <p>Your performance certificate for Quiz 2.0 has been cryptographically signed and added to your profile.</p>
-                <small class="mono-meta">OCT 29, 2026</small>
+                <small class="mono-meta">Oct 29, 2026</small>
               </div>
             </div>
 
             <div class="notif-item">
-              <div class="notif-icon-box">✓</div>
+              <div class="notif-icon-box">OK</div>
               <div class="notif-body">
-                <strong>Invite Code Verified</strong>
-                <p>Your Unstop payment verification was confirmed. Welcome to ReBuild '26 Arena!</p>
-                <small class="mono-meta">NOV 05, 2026</small>
+                <strong>Invite code verified</strong>
+                <p>Your Unstop payment verification was confirmed. Welcome to ReBuild '26 Arena.</p>
+                <small class="mono-meta">Nov 05, 2026</small>
               </div>
             </div>
           </div>
@@ -918,13 +874,13 @@
         <!-- ============================================== -->
         <section class="view-panel" id="view-profile">
           <header class="student-page-header">
-            <span class="section-eyebrow">STUDENT ACCOUNT / CREDENTIALS</span>
-            <h1 class="student-page-title">PROFILE.</h1>
+            <span class="section-eyebrow">Student Account / Credentials</span>
+            <h1 class="student-page-title">Profile</h1>
             <p class="student-page-desc">Your verified student identity and hackathon statistics.</p>
           </header>
 
           <div class="profile-layout-grid">
-            <div class="profile-sidebar-card tilt-card">
+            <div class="profile-sidebar-card">
               <div class="profile-avatar-lg">SK</div>
               <h2 class="profile-fullname">Sai Krishna</h2>
               <span class="profile-uni">CampusCode Builder · 3rd Year CSE</span>
@@ -934,7 +890,7 @@
               </div>
             </div>
 
-            <div class="profile-details-card tilt-card">
+            <div class="profile-details-card">
               <h3 class="card-section-title">ACCOUNT INFORMATION</h3>
               <div class="profile-field-grid">
                 <div>
@@ -950,13 +906,13 @@
                   <strong>CC-2026-8849</strong>
                 </div>
                 <div>
-                  <label>PRIMARY TRACK</label>
-                  <strong>Frontend Engineering / Web3</strong>
+                  <label>TRACK</label>
+                  <strong>Frontend Engineering</strong>
                 </div>
               </div>
               <div class="profile-btn-row">
-                <button class="student-primary-btn" onclick="showToast('Profile updated!')">SAVE CHANGES</button>
-                <button class="student-outline-btn" onclick="navigateTo('digital-card')">VIEW ID CARD</button>
+                <button class="student-primary-btn" onclick="showToast('Profile updated')">Save Changes</button>
+                <button class="student-outline-btn" onclick="navigateTo('digital-card')">View ID Card</button>
               </div>
             </div>
           </div>
@@ -968,40 +924,40 @@
 
   </div>
 
-  <!-- MODAL: REBUILD '26 BRIEF & TIMELINE -->
+  <!-- MODAL: REBUILD '26 BRIEF -->
   <div class="modal-overlay" id="modal-rebuild-brief" onclick="closeModalOnBackdrop(event, 'modal-rebuild-brief')">
     <div class="modal-card">
       <div class="modal-header">
         <div>
-          <span class="section-eyebrow">OFFICIAL RULES & SCHEDULE</span>
+          <span class="section-eyebrow">Schedule & Guidelines</span>
           <h2 class="modal-title">ReBuild '26 — Round 1</h2>
         </div>
         <button class="modal-close-btn" onclick="closeModal('modal-rebuild-brief')">✕</button>
       </div>
       <div class="modal-body">
         <div class="rule-highlight-box">
-          <strong>CRITICAL ROUND 1 RULE:</strong>
-          <p>Round 1 is faithful recreation. Rebuild the 4 pages (Landing, Login, Register, Student Dashboard). If more than 40% of code is AI-written, submission is rejected. You must understand and explain every line.</p>
+          <strong>Critical Round 1 Rule:</strong>
+          <p>Round 1 is faithful recreation of the 4 pages (Landing, Login, Register, Student Dashboard). If more than 40% of code is AI-written, the submission is rejected. You must understand and explain every line.</p>
         </div>
         
         <table class="schedule-mini-table">
           <tr><th>ROUND</th><th>DATE</th><th>OBJECTIVE</th></tr>
-          <tr><td><strong>Round 1</strong></td><td>Fri, 6 Nov (8 AM - 10 PM)</td><td>Recreate 4 pages faithfully.</td></tr>
-          <tr><td><strong>Round 2</strong></td><td>Sat, 7 Nov (10 AM - 8 PM)</td><td>Top performers only: Redesign & rebuild.</td></tr>
-          <tr><td><strong>Winner Prize</strong></td><td>Interview + Certificate</td><td>₹15,000 Stipend Internship with CampusCode.</td></tr>
+          <tr><td><strong>Round 1</strong></td><td>Fri, 6 Nov (8 AM – 10 PM)</td><td>Recreate 4 pages faithfully</td></tr>
+          <tr><td><strong>Round 2</strong></td><td>Sat, 7 Nov (10 AM – 8 PM)</td><td>Top performers only: Redesign & rebuild</td></tr>
+          <tr><td><strong>Prize</strong></td><td>Interview + Certificate</td><td>₹15,000 stipend internship with CampusCode</td></tr>
         </table>
       </div>
       <div class="modal-footer">
-        <button class="student-outline-btn" onclick="closeModal('modal-rebuild-brief')">CLOSE</button>
-        <button class="student-primary-btn" onclick="showToast('Submission portal is live on campuscode.co.in')">PORTAL SUBMISSION LINK ↗</button>
+        <button class="student-outline-btn" onclick="closeModal('modal-rebuild-brief')">Close</button>
+        <button class="student-primary-btn" onclick="showToast('Submission portal is live on campuscode.co.in')">Portal Link</button>
       </div>
     </div>
   </div>
 
-  <!-- TOAST NOTIFICATION CONTAINER -->
+  <!-- TOAST CONTAINER -->
   <div class="toast-container" id="toast-container"></div>
 
-  <!-- Script File -->
+  <!-- Script -->
   <script src="app.js"></script>
 </body>
 </html>
