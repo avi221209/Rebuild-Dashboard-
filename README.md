@@ -16,11 +16,11 @@ A high-fidelity recreation and refined editorial interface for the **CampusCode 
 - **Accessible Modal & Keyboard Navigation:** Full ARIA dialog roles (`role="dialog"`, `aria-modal="true"`, `aria-labelledby`), keyboard `Escape` dismissal, focus trapping, and focus restoration to trigger elements.
 - **Fixed Deadline Countdown:** Real-time client countdown synchronized to the official Round 1 conclusion timestamp (`2026-11-06T22:00:00+05:30`), with graceful post-deadline status display.
 - **RuleBot Assistant:** Deterministic rule-based assistant delivering instant answers extracted directly from the official ReBuild '26 rulebook via client-side keyword analysis.
-- **Four Complete Pages:**
-  1. `landing.html`: ReBuild '26 Arena landing page with bold editorial typography (`BUILD COMPETE SHIP`), ticker, and rule pillars.
-  2. `login.html`: Arena portal login with split-screen hero layout and one-click demo login.
-  3. `register.html`: Student registration flow with role toggling (Student / Organiser) and rules confirmation.
-  4. `index.html`: Complete Student Dashboard featuring:
+- **Four Complete Pages & End-to-End Flow:**
+  1. `index.html` (Landing Page): Default root entry point for the site featuring bold editorial typography (`BUILD COMPETE SHIP`), ticker, rule pillars, and manifesto.
+  2. `login.html` (Login Page): Arena portal login with split-screen hero layout and one-click demo login leading into the student dashboard.
+  3. `register.html` (Register Page): Student registration flow with role toggling (Student / Organiser) and rules confirmation leading into the student dashboard.
+  4. `dashboard.html` (Student Dashboard): Full student workspace accessed upon login featuring:
      - 260px fixed sidebar with active view indicators and mobile drawer support
      - Featured ReBuild '26 event status card with live IST countdown
      - 4-card statistics grid (`REGISTERED`, `ONGOING`, `COMPLETED`, `CERTIFICATES`)
@@ -30,6 +30,7 @@ A high-fidelity recreation and refined editorial interface for the **CampusCode 
      - **RuleBot AI** assistant for competition guidelines
      - **IdeaCheck** project screening simulation
      - Verified digital challenge completion certificates
+  5. `landing.html`: Direct alias matching the landing page.
 
 ---
 
@@ -45,11 +46,12 @@ As specified in the official ReBuild '26 Round 1 guidelines (*"Frontend only. No
 ### Repository File Structure
 
 ```
-├── index.html           # Student Dashboard (Overview, My Events, Events, Digital ID, RuleBot)
-├── landing.html         # Landing Page (BUILD COMPETE SHIP & Rule Pillars)
-├── login.html           # Portal Login Page (Split-stage layout)
-├── register.html        # Registration Flow (Student / Organiser selection)
-├── style.css            # Unslapped editorial design system, typography, & layout
+├── index.html           # Landing Page (Default root entry point: BUILD COMPETE SHIP)
+├── dashboard.html       # Student Dashboard (Overview, My Events, Events, Digital ID, RuleBot)
+├── landing.html         # Landing Page alias
+├── login.html           # Portal Login Page (Redirects to dashboard upon login)
+├── register.html        # Registration Flow (Redirects to dashboard upon submit)
+├── style.css            # Refined editorial design system, typography, & layout
 ├── app.js               # Tab routing, IST countdown, modal focus trap & RuleBot logic
 ├── campuscode-logo.png  # Official three-slash brand asset extracted from PDF
 └── README.md            # Project documentation & overview
